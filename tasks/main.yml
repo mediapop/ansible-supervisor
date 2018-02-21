@@ -19,7 +19,7 @@
     section: unix_http_server
     option: chmod value=0777
   notify:
-    - restart supervisord
+    - restart supervisor
 
 - name: Enable supervisor
   service:
@@ -31,4 +31,4 @@
   shell: supervisorctl update
   become_user: root
   notify:
-    - restart supervisord
+    - restart supervisor
