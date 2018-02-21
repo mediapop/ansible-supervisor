@@ -1,0 +1,34 @@
+# Supervisor only works under python2.7 until the as of yet unreleased 4.0
+- name: Install python2 for supervisor
+  apt:
+    name: python-pip
+
+- name: Install supervisor
+  apt:
+    name: supervisor
+
+- name: Install superlance for supervisor
+  pip:
+    name: superlance
+    executable: pip2
+  tags: memmon
+
+- name: Set supervisor socket accessible to everyone
+  ini_file:
+    dest: /etc/supervisor/supervisord.conf
+    section: unix_http_server
+    option: chmod value=0777
+  notify:
+    - restart supervisord
+
+- name: Enable supervisor
+  service:
+    name: supervisor
+    enabled: yes
+    state: started
+
+- name: reload supervisord
+  shell: supervisorctl update
+  become_user: root
+  notify:
+    - restart supervisord
