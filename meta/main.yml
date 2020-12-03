@@ -5,6 +5,7 @@ galaxy_info:
   company: Media Pop
   license: MIT
   min_ansible_version: 2.10
+  role_name: supervisor
   platforms:
   - name: Ubuntu
     versions:

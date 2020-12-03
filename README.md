@@ -12,5 +12,5 @@ Install supervisor with superlance.
 ```yml
 - hosts: all
   roles:
-    - role: mediapop.supervisor
+    - role: supervisor
 ```
