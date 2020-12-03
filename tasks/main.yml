@@ -15,7 +15,7 @@
   ini_file:
     dest: /etc/supervisor/supervisord.conf
     section: unix_http_server
-    option: chmod value=0777
+    mode: 0777
   notify:
     - restart supervisor
 
