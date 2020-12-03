@@ -4,8 +4,7 @@
 
 [![Travis](https://travis-ci.org/mediapop/ansible-supervisor.svg?branch=master)](https://travis-ci.org/mediapop/ansible-supervisor)
 
-Install supervisor with superlance. On Ubuntu 16.04 it will also setup Python 2.7 until the next 4.x release that
-brings python3 support.
+Install supervisor with superlance.
 
 ## Example Playbook
 

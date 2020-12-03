@@ -1,7 +1,6 @@
-# Supervisor only works under python2.7 until the as of yet unreleased 4.0
-- name: Install python2 for supervisor
+- name: Install pip for supervisor
   apt:
-    name: python-pip
+    name: python3-pip
 
 - name: Install supervisor
   apt:
@@ -10,7 +9,6 @@
 - name: Install superlance for supervisor
   pip:
     name: superlance
-    executable: pip2
   tags: memmon
 
 - name: Set supervisor socket accessible to everyone

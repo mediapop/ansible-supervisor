@@ -4,10 +4,11 @@ galaxy_info:
   description: Installs supervisor
   company: Media Pop
   license: MIT
-  min_ansible_version: 2.4
+  min_ansible_version: 2.10
   platforms:
   - name: Ubuntu
     versions:
-    - all
-  categories:
+    - focal
+  galaxy_tags:
     - system
+    - ubuntu
