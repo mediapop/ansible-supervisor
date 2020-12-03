@@ -2,31 +2,31 @@
   apt:
     name: python3-pip
 
-- name: Install supervisor
-  apt:
-    name: supervisor
+- name: Install, configure, and start Supervisor
+  block:
+    - name: Install supervisor
+      apt:
+        name: supervisor
 
-- name: Install superlance for supervisor
-  pip:
-    name: superlance
-  tags: memmon
+    - name: Install superlance for supervisor
+      pip:
+        name: superlance
+      tags: memmon
 
-- name: Set supervisor socket accessible to everyone
-  ini_file:
-    dest: /etc/supervisor/supervisord.conf
-    section: unix_http_server
-    mode: 0777
-  notify:
-    - restart supervisor
+    - name: Set supervisor socket accessible to everyone
+      ini_file:
+        dest: /etc/supervisor/supervisord.conf
+        section: unix_http_server
+        mode: 0777
 
-- name: Enable supervisor
-  service:
-    name: supervisor
-    enabled: yes
-    state: started
+    - name: Enable supervisor
+      service:
+        name: supervisor
+        enabled: yes
+        state: started
 
-- name: reload supervisord
-  shell: supervisorctl update
-  become_user: root
+    - name: reload supervisord
+      shell: supervisorctl update
+      become_user: root
   notify:
     - restart supervisor
