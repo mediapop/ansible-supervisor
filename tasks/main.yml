@@ -24,9 +24,3 @@
         name: supervisor
         enabled: yes
         state: started
-
-    - name: reload supervisord
-      shell: supervisorctl update
-      become_user: root
-  notify:
-    - restart supervisor
